@@ -11,6 +11,12 @@
 		7BCFFA812A25E1CC00D27B98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFFA802A25E1CC00D27B98 /* ContentView.swift */; };
 		7BCFFA832A25E1CD00D27B98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCFFA822A25E1CD00D27B98 /* Assets.xcassets */; };
 		7BCFFA862A25E1CD00D27B98 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCFFA852A25E1CD00D27B98 /* Preview Assets.xcassets */; };
+		7BCFFA8D2A2638E300D27B98 /* UnitTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFFA8C2A2638E300D27B98 /* UnitTypes.swift */; };
+		7BCFFA8F2A26398400D27B98 /* NamedUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFFA8E2A26398400D27B98 /* NamedUnit.swift */; };
+		7BCFFA922A263A1C00D27B98 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFFA912A263A1C00D27B98 /* Temperature.swift */; };
+		7BCFFA942A263B3300D27B98 /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFFA932A263B3300D27B98 /* Length.swift */; };
+		7BCFFA962A263BF500D27B98 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFFA952A263BF500D27B98 /* Time.swift */; };
+		7BCFFA982A263CF700D27B98 /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFFA972A263CF700D27B98 /* Volume.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		7BCFFA802A25E1CC00D27B98 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7BCFFA822A25E1CD00D27B98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BCFFA852A25E1CD00D27B98 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7BCFFA8C2A2638E300D27B98 /* UnitTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTypes.swift; sourceTree = "<group>"; };
+		7BCFFA8E2A26398400D27B98 /* NamedUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedUnit.swift; sourceTree = "<group>"; };
+		7BCFFA912A263A1C00D27B98 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		7BCFFA932A263B3300D27B98 /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
+		7BCFFA952A263BF500D27B98 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		7BCFFA972A263CF700D27B98 /* Volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +65,7 @@
 			children = (
 				7BCFFA7E2A25E1CC00D27B98 /* Unit_ConversionsApp.swift */,
 				7BCFFA802A25E1CC00D27B98 /* ContentView.swift */,
+				7BCFFA902A263A0800D27B98 /* Model */,
 				7BCFFA822A25E1CD00D27B98 /* Assets.xcassets */,
 				7BCFFA842A25E1CD00D27B98 /* Preview Content */,
 			);
@@ -65,6 +78,19 @@
 				7BCFFA852A25E1CD00D27B98 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7BCFFA902A263A0800D27B98 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BCFFA8C2A2638E300D27B98 /* UnitTypes.swift */,
+				7BCFFA8E2A26398400D27B98 /* NamedUnit.swift */,
+				7BCFFA912A263A1C00D27B98 /* Temperature.swift */,
+				7BCFFA932A263B3300D27B98 /* Length.swift */,
+				7BCFFA952A263BF500D27B98 /* Time.swift */,
+				7BCFFA972A263CF700D27B98 /* Volume.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +163,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BCFFA962A263BF500D27B98 /* Time.swift in Sources */,
+				7BCFFA922A263A1C00D27B98 /* Temperature.swift in Sources */,
+				7BCFFA942A263B3300D27B98 /* Length.swift in Sources */,
 				7BCFFA812A25E1CC00D27B98 /* ContentView.swift in Sources */,
 				7BCFFA7F2A25E1CC00D27B98 /* Unit_ConversionsApp.swift in Sources */,
+				7BCFFA8D2A2638E300D27B98 /* UnitTypes.swift in Sources */,
+				7BCFFA8F2A26398400D27B98 /* NamedUnit.swift in Sources */,
+				7BCFFA982A263CF700D27B98 /* Volume.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
