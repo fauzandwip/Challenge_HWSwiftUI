@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.black]
+    }
+    
     /// input value
     @State private var value = "0"
     
@@ -97,7 +102,7 @@ struct ContentView: View {
 //    }
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             Form {
                 // unit type picker
                 Section {
@@ -129,7 +134,7 @@ struct ContentView: View {
                 Section {
                     // output value
                     HStack {
-                        Text(result, format: .number)
+                        Text(result.formatted())
                         Spacer()
                         Text(destinationNamedUnit.name)
                     }
@@ -143,7 +148,25 @@ struct ContentView: View {
                     .pickerStyle(.segmented)
                 }
             }
-            .navigationTitle("Unit Conversions")
+            .navigationBarTitle("Unit Conversions")
+            .scrollContentBackground(.hidden)
+            .background(Color.gray)
+        }
+        .modifier(DismissingKeyboard())
+    }
+}
+
+struct DismissingKeyboard: ViewModifier {
+    func body(content: Content) -> some View {
+        content.onTapGesture(count: 2) {
+            // note: using a single tap breaks the Pickers
+            let keyWindow = UIApplication.shared.connectedScenes
+                .filter({$0.activationState == .foregroundActive})
+                .map({$0 as? UIWindowScene})
+                .compactMap({$0})
+                .first?.windows
+                .filter({$0.isKeyWindow}).first
+            keyWindow?.endEditing(true)
         }
     }
 }
