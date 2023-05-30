@@ -9,14 +9,44 @@ import SwiftUI
 
 struct ContentView: View {
     
+    /// input value
+    @State private var value = "0"
+    
+    /// selected unit type index
     @State private var unitTypeIndex = 0
     
+    /// source indexes
     @State private var sourceUnitIndexes = ArraySlice(repeating: 0, count: UnitTypes.types.count)
     
+    /// destination indexes
     @State private var destinationUnitIndexes = ArraySlice(repeating: 0, count: UnitTypes.types.count)
     
+    /// all unit types
     var unitTypes: [UnitType.Type] {
         return UnitTypes.types
+    }
+    
+    /// unit type
+    var namedUnits: [NamedUnit] {
+        return unitTypes[unitTypeIndex].units
+    }
+    
+    /// source unit type
+    var sourceNamedUnit: NamedUnit {
+        let selectedSourceIndex = sourceUnitIndexes[unitTypeIndex]
+        return namedUnits[selectedSourceIndex]
+    }
+    
+    /// destination unit type
+    var destinationNamedUnit: NamedUnit {
+        let selectedDestinationIndex = destinationUnitIndexes[unitTypeIndex]
+        return namedUnits[selectedDestinationIndex]
+    }
+    
+    /// result conversion
+    var result: Double {
+        let source = Measurement(value: Double(value) ?? 0, unit: sourceNamedUnit.unit)
+        return source.converted(to: destinationNamedUnit.unit).value
     }
     
 //    private var output: Double {
@@ -69,10 +99,45 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             Form {
+                // unit type picker
                 Section {
                     Picker("Unit Conversions", selection: $unitTypeIndex) {
                         ForEach(0..<unitTypes.count, id: \.self) {
                             Text(unitTypes[$0].name)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                }
+                
+                Section {
+                    // input value
+                    HStack {
+                        TextField("Value", text: $value)
+                            .keyboardType(.decimalPad)
+                        Text(sourceNamedUnit.name)
+                    }
+                    
+                    // source type picker
+                    Picker("Source", selection: $sourceUnitIndexes[unitTypeIndex]) {
+                        ForEach(0..<namedUnits.count, id: \.self) {
+                            Text(namedUnits[$0].unit.symbol)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                }
+                
+                Section {
+                    // output value
+                    HStack {
+                        Text(result, format: .number)
+                        Spacer()
+                        Text(destinationNamedUnit.name)
+                    }
+                    
+                    // destination type picker
+                    Picker("Destination", selection: $destinationUnitIndexes[unitTypeIndex]) {
+                        ForEach(0..<namedUnits.count, id: \.self) {
+                            Text(namedUnits[$0].unit.symbol)
                         }
                     }
                     .pickerStyle(.segmented)
