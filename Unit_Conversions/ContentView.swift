@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    // reference: clarknt
+    
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.black]
